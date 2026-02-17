@@ -4,16 +4,15 @@ import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, MessageCircle, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { openWhatsApp, getWhatsAppUrl } from "@/lib/whatsapp";
 
 const Contact = () => {
-  const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: "Regular Cleaning", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
-    setForm({ name: "", email: "", phone: "", service: "Regular Cleaning", message: "" });
+    const msg = `Hi, I'd like to get in touch about your cleaning services.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\nMessage: ${form.message}`;
+    openWhatsApp(msg);
   };
 
   return (
@@ -59,16 +58,16 @@ const Contact = () => {
                 <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us about your cleaning needs..." className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm resize-none" />
               </div>
               <Button type="submit" className="w-full cta-shadow" size="lg">
-                <Send className="mr-2 w-4 h-4" /> Send Message
+                <Send className="mr-2 w-4 h-4" /> Send via WhatsApp
               </Button>
             </form>
           </div>
 
           <div className="lg:col-span-2 space-y-6">
             {[
-              { icon: Phone, label: "Call Us", value: "07XXX XXX XXX", href: "tel:+447000000000" },
+              { icon: Phone, label: "Call Us", value: "+91 78429 06633", href: "tel:+917842906633" },
               { icon: Mail, label: "Email Us", value: "info@zscleaningservices.co.uk", href: "mailto:info@zscleaningservices.co.uk" },
-              { icon: MessageCircle, label: "WhatsApp", value: "Chat with us instantly", href: "https://wa.me/447000000000" },
+              { icon: MessageCircle, label: "WhatsApp", value: "Chat with us instantly", href: getWhatsAppUrl("Hi, I'd like to chat about your cleaning services.") },
               { icon: MapPin, label: "Location", value: "Watford, Hertfordshire", href: undefined },
             ].map((item) => (
               <div key={item.label} className="bg-card border border-border rounded-xl p-5 card-shadow flex items-center gap-4">

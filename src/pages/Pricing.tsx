@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { openWhatsApp } from "@/lib/whatsapp";
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
@@ -71,11 +72,9 @@ const Pricing = () => (
                 </li>
               ))}
             </ul>
-            <Link to="/contact">
-              <Button variant={pkg.popular ? "default" : "outline"} className={`w-full ${pkg.popular ? "cta-shadow" : ""}`}>
-                Get Quote <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
+            <Button variant={pkg.popular ? "default" : "outline"} className={`w-full ${pkg.popular ? "cta-shadow" : ""}`} onClick={() => openWhatsApp(`Hi, I'm interested in your ${pkg.name} package (${pkg.price}${pkg.unit}). Could I get a quote?`)}>
+              Get Quote <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
           </div>
         ))}
       </div>
