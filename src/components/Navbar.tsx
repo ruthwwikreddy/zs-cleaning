@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -50,13 +51,11 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="tel:+447000000000" className="hidden md:flex items-center gap-2 text-sm font-medium text-foreground">
+          <a href="tel:+917842906633" className="hidden md:flex items-center gap-2 text-sm font-medium text-foreground">
             <Phone className="w-4 h-4 text-primary" />
-            07XXX XXX XXX
+            +91 78429 06633
           </a>
-          <Link to="/contact">
-            <Button size="sm" className="hidden sm:inline-flex cta-shadow">Book Now</Button>
-          </Link>
+          <Button size="sm" className="hidden sm:inline-flex cta-shadow" onClick={() => openWhatsApp("Hi, I'd like to book a cleaning service. Please let me know the available options.")}>Book Now</Button>
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden p-2 rounded-md hover:bg-muted transition-colors"

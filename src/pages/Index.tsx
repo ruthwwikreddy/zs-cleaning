@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import Layout from "@/components/Layout";
 import heroImage from "@/assets/hero-cleaning.jpg";
+import { openWhatsApp, getWhatsAppUrl } from "@/lib/whatsapp";
 import {
   ShieldCheck, Clock, Sparkles, Users, Star, CheckCircle2, ArrowRight,
   Home, Building2, Sofa, Brush, Phone, MapPin
@@ -38,6 +40,13 @@ const reviews = [
 ];
 
 const Index = () => {
+  const [quote, setQuote] = useState({ name: "", phone: "", postcode: "", service: "Regular Cleaning" });
+
+  const handleQuoteSubmit = () => {
+    const msg = `Hi, I'd like a free quote for cleaning services.\n\nName: ${quote.name}\nPhone: ${quote.phone}\nPostcode: ${quote.postcode}\nService: ${quote.service}`;
+    openWhatsApp(msg);
+  };
+
   return (
     <Layout>
       {/* Hero */}
@@ -59,11 +68,9 @@ const Index = () => {
               Professional cleaning services across Watford, Hertfordshire & Greater London. Trusted by hundreds of happy customers.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-              <Link to="/contact">
-                <Button size="lg" className="cta-shadow text-base px-8">
-                  Get Free Quote <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
+              <Button size="lg" className="cta-shadow text-base px-8" onClick={() => openWhatsApp("Hi, I'd like to get a free quote for your cleaning services. Please let me know the available options.")}>
+                Get Free Quote <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
               <Link to="/pricing">
                 <Button size="lg" variant="outline" className="bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 text-base px-8">
                   View Pricing
@@ -81,19 +88,19 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
               <div>
                 <label className="text-sm font-medium mb-1.5 block">Name</label>
-                <input type="text" placeholder="Your name" className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm" />
+                <input type="text" placeholder="Your name" value={quote.name} onChange={(e) => setQuote({ ...quote, name: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm" />
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block">Phone</label>
-                <input type="tel" placeholder="Phone number" className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm" />
+                <input type="tel" placeholder="Phone number" value={quote.phone} onChange={(e) => setQuote({ ...quote, phone: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm" />
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block">Postcode</label>
-                <input type="text" placeholder="e.g. WD17" className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm" />
+                <input type="text" placeholder="e.g. WD17" value={quote.postcode} onChange={(e) => setQuote({ ...quote, postcode: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm" />
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block">Service</label>
-                <select className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm">
+                <select value={quote.service} onChange={(e) => setQuote({ ...quote, service: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm">
                   <option>Regular Cleaning</option>
                   <option>Deep Cleaning</option>
                   <option>End of Tenancy</option>
@@ -101,7 +108,7 @@ const Index = () => {
                   <option>Carpet Cleaning</option>
                 </select>
               </div>
-              <Button className="w-full cta-shadow h-[42px]">Get Free Quote</Button>
+              <Button className="w-full cta-shadow h-[42px]" onClick={handleQuoteSubmit}>Get Free Quote</Button>
             </div>
           </div>
         </div>
@@ -208,12 +215,10 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary-foreground mb-4">Need Cleaning This Week?</h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">Get a free quote in minutes. No obligation, no hidden fees.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" variant="secondary" className="text-base px-8">
-                Get Free Quote <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-            <a href="https://wa.me/447000000000" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" variant="secondary" className="text-base px-8" onClick={() => openWhatsApp("Hi, I need cleaning this week. Could you provide a free quote?")}>
+              Get Free Quote <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <a href={getWhatsAppUrl("Hi, I'd like to chat about your cleaning services.")} target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-base px-8">
                 <Phone className="mr-2 w-4 h-4" /> WhatsApp Us
               </Button>

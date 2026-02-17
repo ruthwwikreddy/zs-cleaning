@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { openWhatsApp } from "@/lib/whatsapp";
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
@@ -90,11 +91,9 @@ const Services = () => (
                     ))}
                   </ul>
                 </div>
-                <Link to="/contact">
-                  <Button className="w-full cta-shadow">
+                <Button className="w-full cta-shadow" onClick={() => openWhatsApp(`Hi, I'd like to book your ${s.title} service. Please provide more details.`)}>
                     Book This Service <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
+                </Button>
               </div>
             </div>
           </div>
