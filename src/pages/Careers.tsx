@@ -4,7 +4,6 @@ import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Briefcase, User, Mail, Phone, FileText, Send, CheckCircle2 } from "lucide-react";
-import { openWhatsApp } from "@/lib/whatsapp";
 import { motion, Variants } from "framer-motion";
 
 const containerVariants: Variants = {
@@ -56,10 +55,13 @@ const Careers = () => {
         experience: "",
     });
 
+    const CAREERS_WHATSAPP = "447939261047";
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const msg = `Hi Z&S Cleaning, I'd like to apply for a position.\n\nPosition: ${form.position}\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nExperience: ${form.experience}`;
-        openWhatsApp(msg);
+        const encoded = encodeURIComponent(msg);
+        window.open(`https://wa.me/${CAREERS_WHATSAPP}?text=${encoded}`, "_blank");
     };
 
     return (
@@ -114,7 +116,7 @@ const Careers = () => {
                                     "Competitive Hourly Rates & Bonuses",
                                     "Flexible Working Schedules",
                                     "Comprehensive Training Provided",
-                                    "Eco-friendly Supplies & Equipment",
+                                    "Must Bring Your Own Cleaning Equipment",
                                     "A Supportive & Respectful Team Environment"
                                 ].map((benefit) => (
                                     <div key={benefit} className="flex items-center gap-3">
@@ -127,9 +129,9 @@ const Careers = () => {
                             </div>
 
                             <div className="p-8 bg-primary/5 rounded-[2.5rem] border border-primary/10">
-                                <h4 className="font-black text-lg mb-2 italic">Pro Tip:</h4>
+                                <h4 className="font-black text-lg mb-2 italic">Please Note:</h4>
                                 <p className="text-sm opacity-80 leading-relaxed">
-                                    Mention your experience with specific cleaning equipment or chemicals to stand out!
+                                    We do not provide cleaning equipment to staff. All applicants must supply their own cleaning equipment.
                                 </p>
                             </div>
                         </motion.div>
