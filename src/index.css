@@ -15,11 +15,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 20% 12%;
 
-    --primary: 168 80% 36%;
+    --primary: 188 92% 46%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 168 30% 95%;
-    --secondary-foreground: 168 80% 26%;
+    --secondary: 188 30% 95%;
+    --secondary-foreground: 188 92% 26%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 210 10% 50%;
@@ -32,16 +32,16 @@
 
     --border: 210 15% 90%;
     --input: 210 15% 90%;
-    --ring: 168 80% 36%;
+    --ring: 188 92% 46%;
 
     --radius: 0.75rem;
 
-    --hero-gradient: linear-gradient(135deg, hsl(168 80% 36%), hsl(168 60% 28%));
+    --hero-gradient: linear-gradient(135deg, hsl(188 92% 46%), hsl(188 72% 36%));
     --hero-overlay: linear-gradient(to right, hsl(210 20% 12% / 0.7), hsl(210 20% 12% / 0.3));
-    --section-gradient: linear-gradient(180deg, hsl(168 30% 97%), hsl(0 0% 100%));
+    --section-gradient: linear-gradient(180deg, hsl(188 30% 97%), hsl(0 0% 100%));
     --card-shadow: 0 4px 24px -4px hsl(210 20% 12% / 0.08);
-    --card-shadow-hover: 0 12px 32px -8px hsl(168 80% 36% / 0.15);
-    --cta-shadow: 0 8px 24px -4px hsl(168 80% 36% / 0.35);
+    --card-shadow-hover: 0 12px 32px -8px hsl(188 92% 46% / 0.15);
+    --cta-shadow: 0 8px 24px -4px hsl(188 92% 46% / 0.35);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -60,10 +60,10 @@
     --card-foreground: 210 20% 96%;
     --popover: 210 20% 12%;
     --popover-foreground: 210 20% 96%;
-    --primary: 168 80% 42%;
+    --primary: 188 92% 52%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 168 20% 16%;
-    --secondary-foreground: 168 40% 80%;
+    --secondary: 188 20% 16%;
+    --secondary-foreground: 188 40% 80%;
     --muted: 210 20% 16%;
     --muted-foreground: 210 10% 60%;
     --accent: 38 95% 55%;
@@ -72,10 +72,10 @@
     --destructive-foreground: 210 40% 98%;
     --border: 210 20% 18%;
     --input: 210 20% 18%;
-    --ring: 168 80% 42%;
+    --ring: 188 92% 52%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 188 92% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
@@ -93,7 +93,16 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  html {
+    font-size: 90%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-bold tracking-tight;
   }
 }

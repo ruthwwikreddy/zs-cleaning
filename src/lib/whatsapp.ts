@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "917842906633";
+const WHATSAPP_NUMBER = "447842906633";
 
 export const openWhatsApp = (message: string) => {
   const encoded = encodeURIComponent(message);

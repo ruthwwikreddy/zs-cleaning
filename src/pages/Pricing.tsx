@@ -5,99 +5,151 @@ import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, Info } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 const packages = [
   {
-    name: "Standard Clean",
-    price: "£15",
-    unit: "/hr",
+    name: "Domestic Maintenance Clean",
+    price: "Custom",
+    unit: "",
     desc: "Perfect for regular weekly or fortnightly cleans.",
     features: ["General tidying", "Dusting & wiping", "Vacuuming & mopping", "Kitchen & bathroom clean", "Bed making"],
     popular: false,
   },
   {
     name: "Deep Clean",
-    price: "£25",
-    unit: "/hr",
+    price: "Custom",
+    unit: "",
     desc: "Intensive cleaning for a thorough refresh.",
     features: ["Everything in Standard", "Inside cupboards", "Appliance cleaning", "Skirting boards", "Light fittings", "Wall spot-cleaning"],
     popular: true,
   },
   {
     name: "End of Tenancy",
-    price: "From £150",
+    price: "Custom",
     unit: "",
     desc: "Full property clean for moving out.",
-    features: ["Complete deep clean", "Oven & hob degreasing", "Bathroom descaling", "Carpet treatment", "Window sills", "Deposit guarantee"],
+    features: ["Complete deep clean", "Kitchen appliances descaled", "Bathroom descaling", "Window sills", "Deposit guarantee"],
     popular: false,
   },
 ];
 
 const addOns = [
-  { name: "Oven Cleaning", price: "£30" },
-  { name: "Fridge Cleaning", price: "£15" },
-  { name: "Inside Windows", price: "£25" },
-  { name: "Ironing (per basket)", price: "£15" },
-  { name: "Carpet Shampooing", price: "From £40" },
-  { name: "Upholstery Cleaning", price: "From £30" },
+  { name: "Fridge Cleaning" },
+  { name: "Inside Windows" },
+  { name: "Ironing (per basket)" },
+  { name: "Upholstery Cleaning" },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
 const Pricing = () => (
   <Layout>
-    <Section>
+    <Section className="pb-32">
       <SectionHeader
-        badge="Pricing"
-        title="Simple, Transparent Pricing"
-        description="No hidden fees, no surprises. Just honest, affordable cleaning."
+        badge="Pure Logic"
+        title="Elite Pricing Packages"
+        description="Premium care shouldn't be a luxury. We offer transparent, high-value solutions for every requirement."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24 px-4"
+      >
         {packages.map((pkg) => (
-          <div key={pkg.name} className={`relative bg-card rounded-2xl p-8 border ${pkg.popular ? "border-primary ring-2 ring-primary/20" : "border-border"} card-shadow flex flex-col`}>
+          <motion.div
+            key={pkg.name}
+            variants={itemVariants}
+            className={`relative bg-card rounded-[2.5rem] p-10 border ${pkg.popular ? "border-primary ring-4 ring-primary/5" : "border-border/50"} shadow-3xl flex flex-col transition-all duration-500 hover:-translate-y-2`}
+          >
             {pkg.popular && (
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-4 py-1 rounded-full">
-                Most Popular
-              </span>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-xl shadow-primary/20">
+                Gold Standard
+              </div>
             )}
-            <h3 className="font-heading font-bold text-xl mb-1">{pkg.name}</h3>
-            <p className="text-sm text-muted-foreground mb-4">{pkg.desc}</p>
-            <div className="mb-6">
-              <span className="text-4xl font-extrabold">{pkg.price}</span>
-              <span className="text-muted-foreground">{pkg.unit}</span>
+            <h3 className="font-heading font-black text-2xl mb-2 tracking-tight">{pkg.name}</h3>
+            <p className="text-sm font-medium text-muted-foreground mb-8 leading-relaxed italic">"{pkg.desc}"</p>
+            <div className="flex items-baseline gap-2 mb-10">
+              <span className="text-4xl font-black tracking-tighter uppercase">{pkg.price}</span>
             </div>
-            <ul className="space-y-3 mb-8 flex-1">
+            <ul className="space-y-4 mb-12 flex-1">
               {pkg.features.map((f) => (
-                <li key={f} className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" /> {f}
+                <li key={f} className="flex items-center gap-3 font-medium text-sm">
+                  <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-3 h-3 text-primary" />
+                  </div>
+                  {f}
                 </li>
               ))}
             </ul>
-            <Button variant={pkg.popular ? "default" : "outline"} className={`w-full ${pkg.popular ? "cta-shadow" : ""}`} onClick={() => openWhatsApp(`Hi, I'm interested in your ${pkg.name} package (${pkg.price}${pkg.unit}). Could I get a quote?`)}>
-              Get Quote <ArrowRight className="ml-2 w-4 h-4" />
+            <Button size="lg" variant={pkg.popular ? "default" : "outline"} className={`w-full h-14 rounded-2xl font-black uppercase tracking-widest ${pkg.popular ? "shadow-xl shadow-primary/20" : ""}`} onClick={() => openWhatsApp(`Hi, I'm interested in a quote for ${pkg.name}.`)}>
+              Get Free Quote
             </Button>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="max-w-3xl mx-auto">
-        <SectionHeader badge="Add-Ons" title="Customise Your Clean" description="Add extra services to any package." />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="max-w-4xl mx-auto px-4">
+        <SectionHeader badge="A La Carte" title="Fine-Tune Your Experience" description="Individual services to meet your exact specifications." />
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {addOns.map((a) => (
-            <div key={a.name} className="bg-card border border-border rounded-xl p-4 card-shadow flex items-center justify-between">
-              <span className="text-sm font-medium">{a.name}</span>
-              <span className="text-sm font-bold text-primary">{a.price}</span>
-            </div>
+            <motion.div key={a.name} variants={itemVariants} className="group bg-card border border-border/50 rounded-3xl p-6 shadow-xl hover:bg-primary transition-all duration-500 flex items-center justify-center text-center cursor-pointer" onClick={() => openWhatsApp(`Hi, I'm interested in the ${a.name} add-on.`)}>
+              <span className="text-sm font-bold group-hover:text-white transition-colors duration-500">{a.name}</span>
+            </motion.div>
           ))}
-        </div>
-        <div className="mt-8 flex items-start gap-3 bg-secondary rounded-xl p-4">
-          <Info className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-muted-foreground">
-            All prices are estimates. Final pricing depends on property size, condition, and specific requirements. We always provide a clear quote before starting any work.
-          </p>
-        </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-16 flex items-start gap-6 bg-secondary/50 rounded-[2rem] p-8 border border-border/30 backdrop-blur-sm"
+        >
+          <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+            <Info className="w-6 h-6 text-primary" />
+          </div>
+          <div>
+            <h4 className="font-heading font-black text-lg mb-2 tracking-tight text-foreground">Important Considerations</h4>
+            <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-4">
+              Our pricing is structured to provide elite care. These estimates reflect standard conditions. For highly complex projects or unique architectural requirements, we provide bespoke evaluations to ensure the highest standards of purity.
+            </p>
+            <Link to="/terms" className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline">
+              View full Terms & Cancellation Policy <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </Section>
   </Layout>
 );
 
+
 export default Pricing;
+
