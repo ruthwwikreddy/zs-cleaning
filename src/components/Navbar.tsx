@@ -102,11 +102,11 @@ const Navbar = () => {
           {/* RIGHT */}
           <div className="flex items-center gap-3 md:gap-6">
             <a
-              href="tel:+447842906633"
+              href="tel:+447591055763"
               className="hidden md:flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-black"
             >
               <Phone size={16} />
-              +44 7842 906633
+              +44 7591 055763
             </a>
 
             <Button
@@ -183,11 +183,11 @@ const Navbar = () => {
               </Button>
 
               <a
-                href="tel:+447842906633"
+                href="tel:+447591055763"
                 className="flex items-center justify-center gap-2 h-12 rounded-xl border"
               >
                 <Phone size={16} />
-                Call 
+                Call +44 7591 055763
               </a>
             </div>
           </motion.div>
