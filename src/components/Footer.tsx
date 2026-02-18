@@ -60,8 +60,8 @@ const Footer = () => (
             <a href="tel:+447591055763" className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
               <Phone className="w-4 h-4 text-primary" /> +44 7591 055763
             </a>
-            <a href="mailto:info@zscleaningservices.co.uk" className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-              <Mail className="w-4 h-4 text-primary" /> info@zscleaningservices.co.uk
+            <a href="mailto:znscleaningservices25@gmail.com" className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              <Mail className="w-4 h-4 text-primary" /> znscleaningservices25@gmail.com
             </a>
             <span className="flex items-center gap-2 opacity-70">
               <MapPin className="w-4 h-4 text-primary" /> Watford, Hertfordshire

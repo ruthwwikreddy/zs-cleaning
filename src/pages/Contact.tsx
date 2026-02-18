@@ -130,7 +130,7 @@ const Contact = () => {
           >
             {[
               { icon: Phone, label: "Call Us", value: "+44 7591 055763", href: "tel:+447591055763" },
-              { icon: Mail, label: "Email Us", value: "info@zscleaningservices.co.uk", href: "mailto:info@zscleaningservices.co.uk" },
+              { icon: Mail, label: "Email Us", value: "znscleaningservices25@gmail.com", href: "mailto:znscleaningservices25@gmail.com" },
               { icon: MessageCircle, label: "WhatsApp", value: "Chat with Sam or Zara", href: getWhatsAppUrl("Hi, I'd like to chat about your cleaning services.") },
               { icon: MapPin, label: "Our Location", value: "Watford & Surroundings", href: undefined },
             ].map((item) => (
