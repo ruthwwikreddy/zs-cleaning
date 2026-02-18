@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
@@ -80,14 +80,20 @@ const itemVariants: Variants = {
 
 
 const Index = () => {
+  const navigate = useNavigate();
   const [quote, setQuote] = useState({ name: "", phone: "", postcode: "", service: "Domestic Maintenance Clean" });
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
   const heroScale = useTransform(scrollY, [0, 400], [1, 1.1]);
 
   const handleQuoteSubmit = () => {
-    const msg = `Hi, I'd like a free quote for cleaning services.\n\nName: ${quote.name}\nPhone: ${quote.phone}\nPostcode: ${quote.postcode}\nService: ${quote.service}`;
-    openWhatsApp(msg);
+    const params = new URLSearchParams({
+      name: quote.name,
+      phone: quote.phone,
+      postcode: quote.postcode,
+      service: quote.service
+    });
+    navigate(`/contact?${params.toString()}`);
   };
 
   return (
@@ -224,27 +230,32 @@ const Index = () => {
                 Response time: &lt; 1 hour
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Your Name</label>
-                <input type="text" placeholder="e.g. John Doe" value={quote.name} onChange={(e) => setQuote({ ...quote, name: e.target.value })} className="w-full h-14 px-6 rounded-2xl border border-border bg-background focus:ring-2 ring-primary/20 transition-all font-medium" />
+                <input type="text" placeholder="e.g. John Doe" value={quote.name} onChange={(e) => setQuote({ ...quote, name: e.target.value })} className="w-full h-14 px-4 rounded-2xl border border-border bg-background focus:ring-2 ring-primary/20 transition-all font-medium" />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Phone Number</label>
-                <input type="tel" placeholder="07XXX XXXXXX" value={quote.phone} onChange={(e) => setQuote({ ...quote, phone: e.target.value })} className="w-full h-14 px-6 rounded-2xl border border-border bg-background focus:ring-2 ring-primary/20 transition-all font-medium" />
+                <input type="tel" placeholder="07XXX XXXXXX" value={quote.phone} onChange={(e) => setQuote({ ...quote, phone: e.target.value })} className="w-full h-14 px-4 rounded-2xl border border-border bg-background focus:ring-2 ring-primary/20 transition-all font-medium" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Postcode</label>
+                <input type="text" placeholder="e.g. WD17" value={quote.postcode} onChange={(e) => setQuote({ ...quote, postcode: e.target.value })} className="w-full h-14 px-4 rounded-2xl border border-border bg-background focus:ring-2 ring-primary/20 transition-all font-medium" />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Service Type</label>
-                <select value={quote.service} onChange={(e) => setQuote({ ...quote, service: e.target.value })} className="w-full h-14 px-6 rounded-2xl border border-border bg-background focus:ring-2 ring-primary/20 transition-all font-medium appearance-none">
+                <select value={quote.service} onChange={(e) => setQuote({ ...quote, service: e.target.value })} className="w-full h-14 px-4 rounded-2xl border border-border bg-background focus:ring-2 ring-primary/20 transition-all font-medium appearance-none">
                   <option>Domestic Maintenance Clean</option>
                   <option>Deep Cleaning</option>
                   <option>End of Tenancy</option>
                   <option>Office Cleaning</option>
-                  <option>Carpet Cleaning</option>
+                  <option>Airbnb Cleaning</option>
+                  <option>One-Off Cleaning</option>
                 </select>
               </div>
-              <Button size="lg" className="h-14 rounded-2xl bg-primary font-black uppercase tracking-widest shadow-xl shadow-primary/20" onClick={handleQuoteSubmit}>
-                Submit Request
+              <Button size="lg" className="h-14 rounded-2xl bg-primary font-black uppercase tracking-widest shadow-xl shadow-primary/20 w-full" onClick={handleQuoteSubmit}>
+                Submit
               </Button>
             </div>
           </motion.div>

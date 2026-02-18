@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
@@ -27,11 +28,30 @@ const itemVariants = {
 };
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", service: "Regular Cleaning", message: "" });
+  const location = useLocation();
+  const [form, setForm] = useState({ name: "", email: "", phone: "", postcode: "", address: "", service: "Domestic Maintenance Clean", message: "" });
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const name = params.get("name");
+    const phone = params.get("phone");
+    const postcode = params.get("postcode");
+    const service = params.get("service");
+
+    if (name || phone || postcode || service) {
+      setForm(prev => ({
+        ...prev,
+        name: name || prev.name,
+        phone: phone || prev.phone,
+        postcode: postcode || prev.postcode,
+        service: service || prev.service,
+      }));
+    }
+  }, [location.search]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `Hi, I'd like to get in touch about your cleaning services.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\nMessage: ${form.message}`;
+    const msg = `Hi, I'd like to get in touch about your cleaning services.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nPostcode: ${form.postcode}\nAddress: ${form.address}\nService: ${form.service}\nMessage: ${form.message}`;
     openWhatsApp(msg);
   };
 
@@ -69,20 +89,29 @@ const Contact = () => {
                   <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="07XXX XXX XXX" className="w-full px-6 py-4 rounded-2xl border border-border/50 bg-background/50 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none font-medium" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">Service Type</label>
-                  <select value={form.service} onChange={(e) => setForm({ ...form, service: e.target.value })} className="w-full px-6 py-4 rounded-2xl border border-border/50 bg-background/50 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none font-bold appearance-none cursor-pointer">
-                    <option>Domestic Maintenance Clean</option>
-                    <option>Regular Cleaning</option>
-                    <option>Deep Cleaning</option>
-                    <option>End of Tenancy</option>
-                    <option>Office Cleaning</option>
-                    <option>Airbnb Cleaning</option>
-                  </select>
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">Postcode</label>
+                  <input required type="text" value={form.postcode} onChange={(e) => setForm({ ...form, postcode: e.target.value })} placeholder="e.g. WD17" className="w-full px-6 py-4 rounded-2xl border border-border/50 bg-background/50 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none font-medium" />
                 </div>
               </div>
               <div className="space-y-2 relative z-10">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">Full Address</label>
+                <input required type="text" value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} placeholder="Your full home or office address" className="w-full px-6 py-4 rounded-2xl border border-border/50 bg-background/50 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none font-medium" />
+              </div>
+              <div className="space-y-2 relative z-10">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">Service Type</label>
+                <select value={form.service} onChange={(e) => setForm({ ...form, service: e.target.value })} className="w-full px-6 py-4 rounded-2xl border border-border/50 bg-background/50 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none font-bold appearance-none cursor-pointer">
+                  <option>Domestic Maintenance Clean</option>
+                  <option>Regular Cleaning</option>
+                  <option>Deep Cleaning</option>
+                  <option>End of Tenancy</option>
+                  <option>Office Cleaning</option>
+                  <option>Airbnb Cleaning</option>
+                  <option>One-Off Cleaning</option>
+                </select>
+              </div>
+              <div className="space-y-2 relative z-10">
                 <label className="text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">How can we help?</label>
-                <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us about what you need cleaned..." className="w-full px-6 py-4 rounded-2xl border border-border/50 bg-background/50 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none font-medium resize-none" />
+                <textarea rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us about what you need cleaned..." className="w-full px-6 py-4 rounded-2xl border border-border/50 bg-background/50 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none font-medium resize-none" />
               </div>
               <Button type="submit" className="w-full h-16 rounded-2xl bg-primary text-white font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-[1.01] transition-all relative z-10" size="lg">
                 <Send className="mr-3 w-5 h-5" /> Send Message
