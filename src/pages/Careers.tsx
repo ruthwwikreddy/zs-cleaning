@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Briefcase, User, Mail, Phone, FileText, Send, CheckCircle2 } from "lucide-react";
+import { openWhatsApp } from "@/lib/whatsapp";
 import { motion, Variants } from "framer-motion";
 
 const containerVariants: Variants = {
@@ -55,13 +56,10 @@ const Careers = () => {
         experience: "",
     });
 
-    const CAREERS_WHATSAPP = "447939261047";
-
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const msg = `Hi Z&S Cleaning, I'd like to apply for a position.\n\nPosition: ${form.position}\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nExperience: ${form.experience}`;
-        const encoded = encodeURIComponent(msg);
-        window.open(`https://wa.me/${CAREERS_WHATSAPP}?text=${encoded}`, "_blank");
+        openWhatsApp(msg);
     };
 
     return (
