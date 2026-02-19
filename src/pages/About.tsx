@@ -89,30 +89,27 @@ const About = () => (
 
     <Section className="py-24 bg-card/30">
       <SectionHeader badge="Leadership" title="Meet the Founders" />
-      <div className="max-w-2xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-4">
+        {[
+          { name: "Zara Joseph", role: "Director" },
+          { name: "Samantha Seamons", role: "Director" },
+        ].map((founder) => (
         <motion.div
+            key={founder.name}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/50"
-        >
-          <img
-            src="/gallery/image.png"
-            alt="Zara Joseph & Samantha Seamons — Founders of Z&S Cleaning Services"
-            className="w-full h-auto object-contain"
-          />
-          {/* Name overlays */}
-          <div className="absolute bottom-0 inset-x-0 flex">
-            <div className="flex-1 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-              <p className="text-white font-black text-lg tracking-tight">Samantha Seamons</p>
-              <p className="text-primary text-[10px] font-black uppercase tracking-widest">Co-Founder & Director</p>
+            className="text-center space-y-4 p-8 rounded-[2.5rem] bg-background border border-border/50 shadow-xl"
+          >
+            <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto text-primary font-black text-3xl">
+              {founder.name.split(' ').map(n => n[0]).join('')}
             </div>
-            <div className="flex-1 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-right">
-              <p className="text-white font-black text-lg tracking-tight">Zara Joseph</p>
-              <p className="text-primary text-[10px] font-black uppercase tracking-widest">Co-Founder & Director</p>
-            </div>
+            <div>
+              <h3 className="text-2xl font-black tracking-tight">{founder.name}</h3>
+              <p className="text-primary font-bold uppercase tracking-widest text-[10px]">{founder.role}</p>
           </div>
         </motion.div>
+        ))}
       </div>
     </Section>
 
