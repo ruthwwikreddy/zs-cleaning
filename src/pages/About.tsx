@@ -104,11 +104,11 @@ const About = () => (
           {/* Name overlays */}
           <div className="absolute bottom-0 inset-x-0 flex">
             <div className="flex-1 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-              <p className="text-white font-black text-lg tracking-tight">Zara Joseph</p>
+              <p className="text-white font-black text-lg tracking-tight">Samantha Seamons</p>
               <p className="text-primary text-[10px] font-black uppercase tracking-widest">Co-Founder & Director</p>
             </div>
             <div className="flex-1 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-right">
-              <p className="text-white font-black text-lg tracking-tight">Samantha Seamons</p>
+              <p className="text-white font-black text-lg tracking-tight">Zara Joseph</p>
               <p className="text-primary text-[10px] font-black uppercase tracking-widest">Co-Founder & Director</p>
             </div>
           </div>
