@@ -36,7 +36,7 @@ const About = () => (
       <SectionHeader
         badge="Our Story"
         title="More Than Just Cleaning"
-        description="Z&S Cleaning Services LTD is a legally registered UK cleaning company providing residential and commercial cleaning services across Watford, Hertfordshire, and Greater London."
+        description="Z&S Cleaning Services LTD is a proudly family-run, women-owned cleaning company — legally registered in the UK and serving homes and businesses across Watford, Hertfordshire, and Greater London."
       />
 
       <motion.div
@@ -47,10 +47,13 @@ const About = () => (
         className="max-w-4xl mx-auto space-y-8 text-lg font-medium text-muted-foreground leading-relaxed px-4 text-center"
       >
         <p>
-          Founded by <span className="text-foreground font-black">Zara Joseph</span> and <span className="text-foreground font-black">Samantha Seamons</span> with a simple mission—to provide <span className="text-foreground font-black italic">affordable, reliable, and transparent</span> cleaning solutions—we've grown into a trusted name in the local community. Our team of professional cleaners is fully vetted, trained, and insured to give you complete peace of mind.
+          Z&S Cleaning Services is a <span className="text-foreground font-black">family business at its heart</span> — founded by sisters-in-spirit <span className="text-foreground font-black">Zara Joseph</span> and <span className="text-foreground font-black">Samantha Seamons</span>, two <span className="text-foreground font-black italic">proud businesswomen</span> who built this company from the ground up with a single mission: to provide <span className="text-foreground font-black italic">affordable, reliable, and transparent</span> cleaning solutions for every home and business.
         </p>
         <p>
-          Whether you need a regular weekly clean, a deep move-out clean, or a one-off spruce-up, we bring the same level of care and attention to every job. We believe a clean space is a happy space, and we're here to make that happen for you.
+          As a <span className="text-foreground font-black">women-owned, family-run business</span>, we bring a personal touch that larger companies simply can't match. Zara and Samantha are hands-on at every level — from the bookings to the final clean — because to us, this isn't just a job. It's our family's name on every doorstep, and we take that seriously.
+        </p>
+        <p>
+          Whether you need a regular weekly clean, a deep move-out clean, or a one-off spruce-up, you'll always be looked after by people who <span className="text-foreground font-black">genuinely care</span>. We believe a clean space is a happy space — and we're here to make that happen for you.
         </p>
       </motion.div>
     </Section>

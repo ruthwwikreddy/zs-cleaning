@@ -7,6 +7,7 @@ import Layout from "@/components/Layout";
 import heroImage from "@/assets/hero-cleaning.jpg";
 import { openWhatsApp, getWhatsAppUrl } from "@/lib/whatsapp";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import TestimonialsBelt from "@/components/TestimonialsBelt";
 import {
   Sparkles,
   ShieldCheck,
@@ -376,6 +377,9 @@ const Index = () => {
           ))}
         </motion.div>
       </Section>
+
+      {/* Testimonials Photo Belt */}
+      <TestimonialsBelt />
 
       {/* Trust Badges */}
       <section className="py-20 border-t border-border/50">

@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import { motion, AnimatePresence } from "framer-motion";
+import TestimonialsBelt from "@/components/TestimonialsBelt";
 
 const categories = ["All", "Kitchens", "Bathrooms", "Offices", "End of Tenancy", "Decors"];
 
@@ -283,6 +284,9 @@ const Gallery = () => {
           </AnimatePresence>
         </motion.div>
       </Section>
+
+      {/* Testimonials Belt */}
+      <TestimonialsBelt />
 
       {/* Fullscreen Lightbox */}
       <AnimatePresence>
