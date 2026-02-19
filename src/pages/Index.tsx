@@ -198,9 +198,13 @@ const Index = () => {
                 </div>
               </motion.div>
 
-              <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl">
-                <img src={heroImage} className="w-full h-full object-cover scale-110" alt="Detail" />
-                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
+              {/* Brand Avatar */}
+              <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl bg-white/5 backdrop-blur-sm">
+                <img
+                  src="/gallery/image.png"
+                  alt="Zara & Samantha – Z&S Cleaning Services"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </motion.div>
           </div>

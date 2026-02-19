@@ -32,55 +32,87 @@ const itemVariants = {
 
 const About = () => (
   <Layout>
-    <Section className="pb-32">
-      <SectionHeader
-        badge="Our Story"
-        title="More Than Just Cleaning"
-        description="Z&S Cleaning Services LTD is a proudly family-run, women-owned cleaning company — legally registered in the UK and serving homes and businesses across Watford, Hertfordshire, and Greater London."
-      />
+    <Section className="pb-16 pt-8">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Text side */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">
+              Our Story
+            </div>
+            <h1 className="text-4xl md:text-5xl font-heading font-black tracking-tight leading-tight">
+              More Than Just <span className="text-primary italic">Cleaning</span>
+            </h1>
+            <div className="space-y-5 text-lg font-medium text-muted-foreground leading-relaxed">
+              <p>
+                Z&S Cleaning Services is a <span className="text-foreground font-black">family business at its heart</span> — founded by <span className="text-foreground font-black">Zara Joseph</span> and <span className="text-foreground font-black">Samantha Seamons</span>, two <span className="text-foreground font-black italic">proud businesswomen</span> who built this company from the ground up with a single mission: to provide <span className="text-foreground font-black italic">affordable, reliable, and transparent</span> cleaning solutions for every home and business.
+              </p>
+              <p>
+                As a <span className="text-foreground font-black">women-owned, family-run business</span>, we bring a personal touch that larger companies simply can't match. Zara and Samantha are hands-on at every level — because to us, this isn't just a job. It's our family's name on every doorstep.
+              </p>
+              <p>
+                Whether you need a regular weekly clean, a deep move-out clean, or a one-off spruce-up, you'll always be looked after by people who <span className="text-foreground font-black">genuinely care</span>.
+              </p>
+            </div>
+          </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="max-w-4xl mx-auto space-y-8 text-lg font-medium text-muted-foreground leading-relaxed px-4 text-center"
-      >
-        <p>
-          Z&S Cleaning Services is a <span className="text-foreground font-black">family business at its heart</span> — founded by sisters-in-spirit <span className="text-foreground font-black">Zara Joseph</span> and <span className="text-foreground font-black">Samantha Seamons</span>, two <span className="text-foreground font-black italic">proud businesswomen</span> who built this company from the ground up with a single mission: to provide <span className="text-foreground font-black italic">affordable, reliable, and transparent</span> cleaning solutions for every home and business.
-        </p>
-        <p>
-          As a <span className="text-foreground font-black">women-owned, family-run business</span>, we bring a personal touch that larger companies simply can't match. Zara and Samantha are hands-on at every level — from the bookings to the final clean — because to us, this isn't just a job. It's our family's name on every doorstep, and we take that seriously.
-        </p>
-        <p>
-          Whether you need a regular weekly clean, a deep move-out clean, or a one-off spruce-up, you'll always be looked after by people who <span className="text-foreground font-black">genuinely care</span>. We believe a clean space is a happy space — and we're here to make that happen for you.
-        </p>
-      </motion.div>
+          {/* Avatar side */}
+          <motion.div
+            initial={{ opacity: 0, x: 30, scale: 0.96 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="relative flex justify-center"
+          >
+            {/* Glowing background blob */}
+            <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full scale-90 -z-10" />
+            <img
+              src="/gallery/image.png"
+              alt="Zara & Samantha — Z&S Cleaning Services"
+              className="w-full max-w-md rounded-3xl shadow-2xl object-contain"
+            />
+            {/* Floating badge */}
+            <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md border border-border/40 rounded-2xl px-5 py-3 shadow-xl">
+              <p className="font-black text-sm tracking-tight">Women-Owned Business 💪</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-primary">Registered UK Company</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </Section>
 
     <Section className="py-24 bg-card/30">
       <SectionHeader badge="Leadership" title="Meet the Founders" />
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-4">
-        {[
-          { name: "Zara Joseph", role: "Director" },
-          { name: "Samantha Seamons", role: "Director" },
-        ].map((founder) => (
-          <motion.div
-            key={founder.name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center space-y-4 p-8 rounded-[2.5rem] bg-background border border-border/50 shadow-xl"
-          >
-            <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto text-primary font-black text-3xl">
-              {founder.name.split(' ').map(n => n[0]).join('')}
+      <div className="max-w-2xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/50"
+        >
+          <img
+            src="/gallery/image.png"
+            alt="Zara Joseph & Samantha Seamons — Founders of Z&S Cleaning Services"
+            className="w-full h-auto object-contain"
+          />
+          {/* Name overlays */}
+          <div className="absolute bottom-0 inset-x-0 flex">
+            <div className="flex-1 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
+              <p className="text-white font-black text-lg tracking-tight">Zara Joseph</p>
+              <p className="text-primary text-[10px] font-black uppercase tracking-widest">Co-Founder & Director</p>
             </div>
-            <div>
-              <h3 className="text-2xl font-black tracking-tight">{founder.name}</h3>
-              <p className="text-primary font-bold uppercase tracking-widest text-[10px]">{founder.role}</p>
+            <div className="flex-1 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-right">
+              <p className="text-white font-black text-lg tracking-tight">Samantha Seamons</p>
+              <p className="text-primary text-[10px] font-black uppercase tracking-widest">Co-Founder & Director</p>
             </div>
-          </motion.div>
-        ))}
+          </div>
+        </motion.div>
       </div>
     </Section>
 

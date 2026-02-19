@@ -8,13 +8,11 @@ const Footer = () => (
         {/* Brand */}
         <div>
           <Link to="/" className="flex items-center gap-3 mb-6 group">
-            <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center transition-transform group-hover:scale-110">
-              <img src="/logo.svg" alt="Z&S Cleaning Services" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <p className="font-heading font-black text-lg tracking-tight">Z&S Cleaning</p>
-              <p className="text-[10px] font-bold opacity-60 uppercase tracking-widest text-primary">Services LTD</p>
-            </div>
+            <img
+              src="/gallery/image.png"
+              alt="Z&S Cleaning Services"
+              className="h-16 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </Link>
           <p className="text-sm opacity-70 leading-relaxed">
             Professional cleaning services across Watford, Hertfordshire & Greater London. Fully insured & registered.

@@ -61,10 +61,10 @@ const Navbar = () => {
           {/* LOGO */}
           <Link to="/" className="flex items-center gap-3">
             <motion.img
-              whileHover={{ rotate: 6, scale: 1.06 }}
-              src="/logo.svg"
-              alt="Logo"
-              className="w-9 h-9 md:w-11 md:h-11"
+              whileHover={{ scale: 1.06 }}
+              src="/gallery/image.png"
+              alt="Z&S Cleaning Services"
+              className="h-10 md:h-12 w-auto object-contain"
             />
           </Link>
 
@@ -140,7 +140,7 @@ const Navbar = () => {
           >
             {/* top bar */}
             <div className="flex items-center justify-between px-6 h-20 border-b">
-              <img src="/logo.svg" className="w-9" />
+              <img src="/gallery/image.png" className="h-10 w-auto object-contain" />
 
               <button
                 onClick={() => setMobileOpen(false)}
