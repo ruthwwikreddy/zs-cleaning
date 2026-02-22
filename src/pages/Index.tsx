@@ -105,9 +105,9 @@ const Index = () => {
           <img
             src="/gallery/hero.jpeg"
             alt="Professional cleaning service"
-            className="w-full h-full object-cover opacity-60 brightness-75 transition-all duration-700"
+            className="w-full h-full object-cover object-[center_30%] opacity-60 brightness-75 transition-all duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30" />
         </motion.div>
 
         <div className="container relative z-30 pt-24 pb-32 lg:py-0">
@@ -203,10 +203,10 @@ const Index = () => {
               <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl">
                 <img
                   src="/gallery/hero.jpeg"
-                  className="w-full h-full object-cover object-[center_28%]"
+                  className="w-full h-full object-cover object-[center_30%]"
                   alt="Professional cleaning"
                 />
-                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
               </div>
             </motion.div>
           </div>
