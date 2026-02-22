@@ -170,7 +170,7 @@ const Contact = () => {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">{item.label}</p>
                   {item.href ? (
-                    <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="font-heading font-black text-lg hover:text-primary transition-colors tracking-tight">
+                    <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="font-heading font-black text-sm sm:text-lg hover:text-primary transition-colors tracking-tight break-all">
                       {item.value}
                     </a>
                   ) : (
