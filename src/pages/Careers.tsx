@@ -4,7 +4,6 @@ import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Briefcase, User, Mail, Phone, FileText, Send, CheckCircle2 } from "lucide-react";
-import { openWhatsApp } from "@/lib/whatsapp";
 import { motion, Variants } from "framer-motion";
 
 const containerVariants: Variants = {
@@ -52,8 +51,9 @@ const Careers = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const msg = `Hi Z&S Cleaning, I'd like to apply for a position.\n\nPosition: ${form.position}\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nExperience: ${form.experience}`;
-        openWhatsApp(msg);
+        const subject = `Job Application - ${form.position}`;
+        const body = `Hi Z&S Cleaning, I'd like to apply for a position.\n\nPosition: ${form.position}\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nExperience: ${form.experience}\n\n*** Please attach your resume/CV to this email before sending. ***`;
+        window.open(`mailto:znscleaningservices25@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
     };
 
     return (
@@ -204,10 +204,10 @@ const Careers = () => {
 
                                 <div className="space-y-4">
                                     <Button type="submit" className="w-full h-16 rounded-2xl bg-primary text-white font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-[1.01] transition-all relative z-10" size="lg">
-                                        <Send className="mr-3 w-5 h-5" /> Submit Application
+                                        <Mail className="mr-3 w-5 h-5" /> Submit Application
                                     </Button>
                                     <p className="text-[10px] text-center text-muted-foreground uppercase font-bold tracking-widest opacity-60">
-                                        Application will be sent via WhatsApp for instant review
+                                        A pre-filled email will open — please attach your resume before sending
                                     </p>
                                 </div>
 

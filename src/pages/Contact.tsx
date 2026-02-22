@@ -5,7 +5,6 @@ import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
-import { openWhatsApp, getWhatsAppUrl } from "@/lib/whatsapp";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -125,19 +124,7 @@ const Contact = () => {
                   className="flex-1 h-16 rounded-2xl bg-black hover:bg-black/80 text-white font-black uppercase tracking-[0.1em] shadow-xl shadow-black/10 hover:scale-[1.01] transition-all"
                   size="lg"
                 >
-                  <Mail className="mr-3 w-5 h-5" /> Send via Email
-                </Button>
-                <Button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const msg = `Hi, I'd like to get in touch about your cleaning services.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nPostcode: ${form.postcode}\nAddress: ${form.address}\nService: ${form.service}\n\nMessage:\n${form.message}`;
-                    openWhatsApp(msg);
-                  }}
-                  className="flex-1 h-16 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black uppercase tracking-[0.1em] shadow-xl shadow-[#25D366]/20 hover:scale-[1.01] transition-all"
-                  size="lg"
-                >
-                  <MessageCircle className="mr-3 w-5 h-5" /> Send via WhatsApp
+                  <Mail className="mr-3 w-5 h-5" /> Submit Enquiry
                 </Button>
               </div>
 
@@ -153,10 +140,9 @@ const Contact = () => {
             className="lg:col-span-2 space-y-8"
           >
             {[
-              { icon: Phone, label: "Call Us", value: "+44 7591 055763", href: "tel:+447591055763" },
-              { icon: Phone, label: "Alternate Number", value: "+44 7492 928192", href: "tel:+447492928192" },
+              { icon: Phone, label: "Call Us (Samantha)", value: "+44 7591 055763", href: "tel:+447591055763" },
+              { icon: Phone, label: "Call Us (Zara)", value: "+44 7492 928192", href: "tel:+447492928192" },
               { icon: Mail, label: "Email Us", value: "znscleaningservices25@gmail.com", href: "mailto:znscleaningservices25@gmail.com" },
-              { icon: MessageCircle, label: "WhatsApp", value: "Chat with Sam or Zara", href: getWhatsAppUrl("Hi, I'd like to chat about your cleaning services.") },
               { icon: MapPin, label: "Our Location", value: "Watford & Surroundings", href: undefined },
             ].map((item) => (
               <motion.div
