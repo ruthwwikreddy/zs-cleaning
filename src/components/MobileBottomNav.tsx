@@ -1,7 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Home, Sparkles, Image, MessageCircle, Plus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { openWhatsApp } from "@/lib/whatsapp";
 
 const navLinks = [
     { label: "Home", path: "/", icon: Home },
@@ -12,6 +11,7 @@ const navLinks = [
 
 const MobileBottomNav = () => {
     const location = useLocation();
+    const navigate = useNavigate();
 
     return (
         <div className="fixed bottom-0 left-0 right-0 z-[110] lg:hidden p-6 pb-8 pointer-events-none">
@@ -66,7 +66,7 @@ const MobileBottomNav = () => {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => openWhatsApp("Hi, I'd like to book a premium cleaning experience.")}
+                        onClick={() => navigate("/contact")}
                         className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center shadow-[0_15px_30px_rgba(var(--primary-rgb),0.3)] relative group overflow-hidden border-4 border-white"
                     >
                         <div className="absolute inset-0 bg-gradient-to-tr from-primary/0 via-white/20 to-primary/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

@@ -89,14 +89,14 @@ const Footer = () => (
             <span className="flex items-center gap-2 opacity-70">
               <MapPin className="w-4 h-4 text-primary" /> Watford, Hertfordshire
             </span>
-            <div className="flex items-center gap-4 mt-4">
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity" aria-label="Facebook">
+            <div className="flex items-center gap-5 mt-4">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center hover:bg-primary transition-colors duration-300" aria-label="Facebook">
                 <FacebookIcon />
               </a>
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity" aria-label="Instagram">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center hover:bg-primary transition-colors duration-300" aria-label="Instagram">
                 <InstagramIcon />
               </a>
-              <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity" aria-label="TikTok">
+              <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center hover:bg-primary transition-colors duration-300" aria-label="TikTok">
                 <TikTokIcon />
               </a>
             </div>
