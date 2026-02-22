@@ -105,7 +105,7 @@ const Index = () => {
           <img
             src="/gallery/hero.jpeg"
             alt="Professional cleaning service"
-            className="w-full h-full object-cover object-[center_30%] opacity-60 brightness-75 transition-all duration-700"
+            className="w-full h-full object-cover object-[center_30%] opacity-80 brightness-80 transition-all duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30" />
         </motion.div>
