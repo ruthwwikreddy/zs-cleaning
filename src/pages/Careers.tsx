@@ -39,12 +39,6 @@ const careers = [
         location: "Greater London Area",
         description: "Headed for office and commercial facility maintenance projects."
     },
-    {
-        title: "Team Supervisor",
-        type: "Full-time",
-        location: "Hertfordshire",
-        description: "Leading and managing small teams to ensure our high standards are met."
-    }
 ];
 
 const Careers = () => {
@@ -66,7 +60,7 @@ const Careers = () => {
         <Layout>
             <Section className="pb-32">
                 <SectionHeader
-                    badge="Join Our Force"
+                    badge="Join Our Team"
                     title="Build Your Career"
                     description="We are always looking for dedicated, professional, and hardworking individuals to join our growing team."
                 />
@@ -114,7 +108,6 @@ const Careers = () => {
                                     "Competitive Hourly Rates & Bonuses",
                                     "Flexible Working Schedules",
                                     "Comprehensive Training Provided",
-                                    "Must Bring Your Own Cleaning Equipment",
                                     "A Supportive & Respectful Team Environment"
                                 ].map((benefit) => (
                                     <div key={benefit} className="flex items-center gap-3">
@@ -124,13 +117,6 @@ const Careers = () => {
                                         <span className="font-bold text-sm tracking-tight">{benefit}</span>
                                     </div>
                                 ))}
-                            </div>
-
-                            <div className="p-8 bg-primary/5 rounded-[2.5rem] border border-primary/10">
-                                <h4 className="font-black text-lg mb-2 italic">Please Note:</h4>
-                                <p className="text-sm opacity-80 leading-relaxed">
-                                    We do not provide cleaning equipment to staff. All applicants must supply their own cleaning equipment.
-                                </p>
                             </div>
                         </motion.div>
 

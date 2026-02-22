@@ -148,6 +148,37 @@ const galleryItems = [
     after: "Smudge-free accessories",
     image: "/gallery/beforeafter/decors/img-17.jpg"
   },
+  {
+    category: "Kitchens",
+    before: "Heavily stained stainless steel sink",
+    after: "Polished to a brilliant shine",
+    imageBefore: "/gallery/beforeafter/sink2/image.png",
+    imageAfter: "/gallery/beforeafter/sink2/image copy.png"
+  },
+  {
+    category: "Bathrooms",
+    before: "Professional shower cleaning",
+    after: "Removing stubborn water marks",
+    image: "/gallery/beforeafter/shower3/image.png"
+  },
+  {
+    category: "Decors",
+    before: "Sofa arrangement",
+    after: "Heart-shaped cushion styling",
+    image: "/gallery/beforeafter/decors/image.png"
+  },
+  {
+    category: "Decors",
+    before: "Living room styling",
+    after: "Elegant bow-shaped blanket fold",
+    image: "/gallery/beforeafter/decors/image copy.png"
+  },
+  {
+    category: "Decors",
+    before: "Bedroom detailing",
+    after: "Beautiful bow-shaped bed styling",
+    image: "/gallery/beforeafter/decors/Screenshot 2026-02-21 at 17.57.10.png"
+  }
 ];
 
 const containerVariants = {

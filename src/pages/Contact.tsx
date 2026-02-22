@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, MessageCircle, Send } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { openWhatsApp, getWhatsAppUrl } from "@/lib/whatsapp";
 import { motion } from "framer-motion";
 
@@ -23,7 +23,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.6, ease: "easeOut" as const }
   }
 };
 
@@ -113,9 +113,33 @@ const Contact = () => {
                 <label className="text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">How can we help?</label>
                 <textarea rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us about what you need cleaned..." className="w-full px-6 py-4 rounded-2xl border border-border/50 bg-background/50 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none font-medium resize-none" />
               </div>
-              <Button type="submit" className="w-full h-16 rounded-2xl bg-primary text-white font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-[1.01] transition-all relative z-10" size="lg">
-                <Send className="mr-3 w-5 h-5" /> Send Message
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 relative z-10 mt-8">
+                <Button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const subject = `Cleaning Enquiry - ${form.service}`;
+                    const msg = `Hi, I'd like to get in touch about your cleaning services.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nPostcode: ${form.postcode}\nAddress: ${form.address}\nService: ${form.service}\n\nMessage:\n${form.message}`;
+                    window.open(`mailto:znscleaningservices25@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`);
+                  }}
+                  className="flex-1 h-16 rounded-2xl bg-black hover:bg-black/80 text-white font-black uppercase tracking-[0.1em] shadow-xl shadow-black/10 hover:scale-[1.01] transition-all"
+                  size="lg"
+                >
+                  <Mail className="mr-3 w-5 h-5" /> Send via Email
+                </Button>
+                <Button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const msg = `Hi, I'd like to get in touch about your cleaning services.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nPostcode: ${form.postcode}\nAddress: ${form.address}\nService: ${form.service}\n\nMessage:\n${form.message}`;
+                    openWhatsApp(msg);
+                  }}
+                  className="flex-1 h-16 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black uppercase tracking-[0.1em] shadow-xl shadow-[#25D366]/20 hover:scale-[1.01] transition-all"
+                  size="lg"
+                >
+                  <MessageCircle className="mr-3 w-5 h-5" /> Send via WhatsApp
+                </Button>
+              </div>
 
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[100px] rounded-full -mr-32 -mt-32 pointer-events-none" />
             </form>
@@ -130,7 +154,7 @@ const Contact = () => {
           >
             {[
               { icon: Phone, label: "Call Us", value: "+44 7591 055763", href: "tel:+447591055763" },
-              { icon: Phone, label: "Alternate Number", value: "+44 7939 261047", href: "tel:+447939261047" },
+              { icon: Phone, label: "Alternate Number", value: "+44 7492 928192", href: "tel:+447492928192" },
               { icon: Mail, label: "Email Us", value: "znscleaningservices25@gmail.com", href: "mailto:znscleaningservices25@gmail.com" },
               { icon: MessageCircle, label: "WhatsApp", value: "Chat with Sam or Zara", href: getWhatsAppUrl("Hi, I'd like to chat about your cleaning services.") },
               { icon: MapPin, label: "Our Location", value: "Watford & Surroundings", href: undefined },

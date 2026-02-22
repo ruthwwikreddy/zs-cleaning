@@ -14,7 +14,6 @@ const services = [
     title: "Domestic Maintenance Clean",
     desc: "Keep your home consistently clean with our weekly or fortnightly service.",
     included: ["Dusting & wiping surfaces", "Vacuuming & mopping floors", "Kitchen & bathroom cleaning", "Bed making & tidying"],
-    duration: "2-4 hours",
     addOns: ["Ironing", "Fridge cleaning", "Skirting boards"],
   },
   {
@@ -22,7 +21,6 @@ const services = [
     title: "Deep Cleaning",
     desc: "An intensive, thorough clean that reaches every corner of your home.",
     included: ["All regular cleaning tasks", "Inside cupboards & drawers", "Appliance deep clean", "Skirting boards & light fittings"],
-    duration: "4-8 hours",
     addOns: ["Window cleaning", "Wall washing", "Inside fridge"],
   },
   {
@@ -30,7 +28,6 @@ const services = [
     title: "End of Tenancy",
     desc: "Get your full deposit back with our comprehensive move-out clean.",
     included: ["Full property deep clean", "Kitchen appliances descaled", "Bathroom descaling", "Window sills & frames"],
-    duration: "6-10 hours",
     addOns: ["Professional deep clean", "Window cleaning", "Wall spot-cleaning"],
   },
   {
@@ -38,7 +35,6 @@ const services = [
     title: "Office Cleaning",
     desc: "Maintain a productive workspace with professional commercial cleaning.",
     included: ["Desk & surface sanitisation", "Floor cleaning", "Kitchen & breakroom", "Bathroom restocking"],
-    duration: "Custom",
     addOns: ["Window cleaning", "Waste management", "Post-event clean"],
   },
 ];
@@ -92,10 +88,6 @@ const Services = () => (
                   </div>
                   <div>
                     <h3 className="font-heading font-black text-3xl tracking-tight mb-1">{s.title}</h3>
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-3 h-3 text-muted-foreground" />
-                      <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{s.duration} Est.</span>
-                    </div>
                   </div>
                 </div>
                 <p className="text-muted-foreground text-lg mb-8 leading-relaxed font-medium">{s.desc}</p>

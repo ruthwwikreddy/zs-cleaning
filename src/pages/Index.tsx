@@ -23,7 +23,7 @@ import {
   ArrowRight,
   PlayCircle,
   Check,
-  Home, Building2, Sofa, Brush, Users, Award
+  Home, Building2, Sofa, Brush, Users, Award, HardHat
 } from "lucide-react";
 
 const services = [
@@ -33,6 +33,7 @@ const services = [
   { icon: Building2, title: "Office Cleaning", desc: "Professional workspace cleaning for productive environments.", color: "bg-emerald-500/10 text-emerald-600" },
   { icon: Users, title: "Airbnb Cleaning", desc: "Meticulous turnover service for your short-term rentals.", color: "bg-pink-500/10 text-pink-600" },
   { icon: Zap, title: "One-Off Cleaning", desc: "Special occasion or seasonal deep cleans on demand.", color: "bg-indigo-500/10 text-indigo-600" },
+  { icon: HardHat, title: "H.M.O & After Builders Cleaning", desc: "Specialist cleaning for HMOs and post-construction, leaving properties move-in ready.", color: "bg-slate-500/10 text-slate-600" },
 ];
 
 const whyUs = [
@@ -199,7 +200,11 @@ const Index = () => {
               </motion.div>
 
               <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl">
-                <img src={heroImage} className="w-full h-full object-cover scale-110" alt="Detail" />
+                <img
+                  src="/gallery/hero.jpeg"
+                  className="w-full h-full object-cover object-[center_28%]"
+                  alt="Professional cleaning"
+                />
                 <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
               </div>
             </motion.div>
