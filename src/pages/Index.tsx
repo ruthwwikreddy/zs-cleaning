@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 import Layout from "@/components/Layout";
-import heroImage from "@/assets/hero-cleaning.jpg";
 import { openWhatsApp, getWhatsAppUrl } from "@/lib/whatsapp";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import TestimonialsBelt from "@/components/TestimonialsBelt";
@@ -104,7 +103,7 @@ const Index = () => {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-black">
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="absolute inset-0">
           <img
-            src={heroImage}
+            src="/gallery/hero.jpeg"
             alt="Professional cleaning service"
             className="w-full h-full object-cover opacity-60 brightness-75 transition-all duration-700"
           />
@@ -149,9 +148,11 @@ const Index = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="flex flex-wrap gap-6 relative z-50"
               >
-                <Button size="lg" className="rounded-full px-10 h-16 text-lg font-black uppercase tracking-widest bg-primary hover:scale-105 active:scale-95 transition-transform shadow-[0_20px_50px_rgba(var(--primary-rgb),0.3)]" onClick={() => openWhatsApp("Hi, I want a free quote.")}>
-                  Get a Free Quote <ArrowRight className="ml-3 w-5 h-5" />
-                </Button>
+                <Link to="/contact">
+                  <Button size="lg" className="rounded-full px-10 h-16 text-lg font-black uppercase tracking-widest bg-primary hover:scale-105 active:scale-95 transition-transform shadow-[0_20px_50px_rgba(var(--primary-rgb),0.3)]">
+                    Get a Free Quote <ArrowRight className="ml-3 w-5 h-5" />
+                  </Button>
+                </Link>
                 <Link to="/services">
                   <Button size="lg" variant="outline" className="rounded-full px-10 h-16 text-lg font-bold text-black border-white hover:bg-white/10 backdrop-blur-md shadow-2xl">
                     Our Services
