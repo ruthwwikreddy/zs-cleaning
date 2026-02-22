@@ -443,20 +443,6 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               </Button>
 
-              <a
-                href={getWhatsAppUrl("Hi, I'd like to chat.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-block"
-              >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-2xl px-12 h-20 text-xl font-black uppercase tracking-[0.2em] text-black border-2 border-black/40 hover:border-black hover:bg-white/10 backdrop-blur-xl shadow-2xl transition-all"
-                >
-                  <MessageCircle className="mr-3 w-6 h-6 text-black" /> WhatsApp Us
-                </Button>
-              </a>
             </div>
           </motion.div>
         </div>
