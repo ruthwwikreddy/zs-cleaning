@@ -435,7 +435,7 @@ const Index = () => {
                 size="lg"
                 variant="secondary"
                 className="group relative rounded-2xl px-12 h-20 text-xl font-black uppercase tracking-[0.2em] shadow-[0_20px_60px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-all overflow-hidden"
-                onClick={() => openWhatsApp("Hi, I want a cleaning quote.")}
+                onClick={() => navigate("/contact")}
               >
                 <span className="relative z-10 flex items-center">
                   Get Free Quote <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />

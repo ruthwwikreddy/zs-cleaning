@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone, MessageCircle, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -23,6 +23,7 @@ const navLinks = [
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { scrollY } = useScroll();
   const bookDropdownRef = useRef<HTMLDivElement>(null);
 
@@ -141,10 +142,9 @@ const Navbar = () => {
             <div className="hidden md:block relative" ref={bookDropdownRef}>
               <Button
                 className="rounded-xl px-6 h-11 font-semibold shadow-lg hover:shadow-xl hover:scale-[1.04] flex items-center gap-2"
-                onClick={() => setBookDropdownOpen((o) => !o)}
+                onClick={() => navigate("/contact")}
               >
                 Book Cleaning
-                <ChevronDown className={`w-4 h-4 transition-transform ${bookDropdownOpen ? "rotate-180" : ""}`} />
               </Button>
               <AnimatePresence>
                 {bookDropdownOpen && (
