@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { openWhatsApp } from "@/lib/whatsapp";
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
@@ -58,7 +58,9 @@ const itemVariants: Variants = {
   }
 };
 
-const Services = () => (
+const Services = () => {
+  const navigate = useNavigate();
+  return (
   <Layout>
     <Section className="pb-32">
       <SectionHeader
@@ -123,7 +125,7 @@ const Services = () => (
                   <p className="text-3xl font-black text-center mb-6 uppercase">Free Quote</p>
                   <Button
                     className="w-full h-14 rounded-2xl bg-primary font-black uppercase tracking-widest shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform"
-                    onClick={() => openWhatsApp(`Hi, I'd like a quote for your ${s.title} service.`)}
+                    onClick={() => navigate(`/contact?service=${encodeURIComponent(s.title)}`)}
                   >
                     Request Quote
                   </Button>
@@ -144,7 +146,8 @@ const Services = () => (
       </motion.div>
     </Section>
   </Layout>
-);
+  );
+};
 
 
 export default Services;

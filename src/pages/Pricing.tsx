@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { openWhatsApp } from "@/lib/whatsapp";
 import Layout from "@/components/Layout";
 import Section from "@/components/Section";
@@ -60,7 +60,9 @@ const itemVariants: Variants = {
   }
 };
 
-const Pricing = () => (
+const Pricing = () => {
+  const navigate = useNavigate();
+  return (
   <Layout>
     <Section className="pb-32">
       <SectionHeader
@@ -102,7 +104,7 @@ const Pricing = () => (
                 </li>
               ))}
             </ul>
-            <Button size="lg" variant={pkg.popular ? "default" : "outline"} className={`w-full h-14 rounded-2xl font-black uppercase tracking-widest ${pkg.popular ? "shadow-xl shadow-primary/20" : ""}`} onClick={() => openWhatsApp(`Hi, I'm interested in a quote for ${pkg.name}.`)}>
+            <Button size="lg" variant={pkg.popular ? "default" : "outline"} className={`w-full h-14 rounded-2xl font-black uppercase tracking-widest ${pkg.popular ? "shadow-xl shadow-primary/20" : ""}`} onClick={() => navigate(`/contact?service=${encodeURIComponent(pkg.name)}`)}>
               Get Free Quote
             </Button>
           </motion.div>
@@ -119,7 +121,7 @@ const Pricing = () => (
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {addOns.map((a) => (
-            <motion.div key={a.name} variants={itemVariants} className="group bg-card border border-border/50 rounded-3xl p-6 shadow-xl hover:bg-primary transition-all duration-500 flex items-center justify-center text-center cursor-pointer" onClick={() => openWhatsApp(`Hi, I'm interested in the ${a.name} add-on.`)}>
+            <motion.div key={a.name} variants={itemVariants} className="group bg-card border border-border/50 rounded-3xl p-6 shadow-xl hover:bg-primary transition-all duration-500 flex items-center justify-center text-center cursor-pointer" onClick={() => navigate(`/contact?service=${encodeURIComponent(a.name)}`)}>
               <span className="text-sm font-bold group-hover:text-white transition-colors duration-500">{a.name}</span>
             </motion.div>
           ))}
@@ -148,7 +150,8 @@ const Pricing = () => (
       </div>
     </Section>
   </Layout>
-);
+  );
+};
 
 
 export default Pricing;
